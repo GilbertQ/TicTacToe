@@ -95,23 +95,29 @@ const TicTacToe = () => {
         mx: 'auto',
         mt: 4,
         p: 3,
+        bgcolor: 'background.paper', // Added background color
       }}
       component={Paper}
       elevation={3}
     >
-      <Typography variant="h4" align="center" gutterBottom>
+      <Typography
+        variant="h4"
+        align="center"
+        gutterBottom
+        sx={{ color: 'primary.main' }} // Added color for the title
+      >
         Tic Tac Toe
       </Typography>
-      
-      <Typography 
-        variant="h6" 
-        align="center" 
+  
+      <Typography
+        variant="h6"
+        align="center"
         color={winner ? 'success.main' : 'text.primary'}
         gutterBottom
       >
         {getGameStatus()}
       </Typography>
-
+  
       <Grid container spacing={1} justifyContent="center">
         {[0, 1, 2].map(row => (
           <Grid item key={row} container spacing={1} justifyContent="center">
@@ -123,19 +129,20 @@ const TicTacToe = () => {
           </Grid>
         ))}
       </Grid>
-
+  
       <Box sx={{ textAlign: 'center', mt: 2 }}>
-        <Button 
-          variant="contained" 
-          color="primary" 
+        <Button
+          variant="contained"
+          color="primary"
           onClick={resetGame}
-          sx={{ px: 4 }}
+          sx={{ px: 4, bgcolor: 'primary.dark' }} // Added background color for the button
         >
           Reset Game
         </Button>
       </Box>
     </Box>
   );
+  
 };
 
 export default TicTacToe;
